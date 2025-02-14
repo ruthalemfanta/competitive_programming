@@ -1,14 +1,21 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        k = len(s1)
-        left = 0 
-        for right in range(k,len(s2)+1):
-            if sorted(s2[left:right]) == sorted(s1):
+        if len(s1) > len(s2):
+            return False
+
+        s1_counter = Counter(s1)
+        s2_counter = Counter(s2[:len(s1)])
+
+        if s1_counter == s2_counter:
+            return True
+
+        for right in range(len(s1), len(s2)):
+            s2_counter[s2[right - len(s1)]] -= 1
+            s2_counter[s2[right]] += 1
+            if s1_counter == s2_counter:
                 return True
-            left += 1
 
         return False
-
 
 
         
