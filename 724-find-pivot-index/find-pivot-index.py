@@ -8,4 +8,4 @@ class Solution:
                 return index
             left_sum = left_sum + nums[index]
             
-        return -1
+        return -1 
