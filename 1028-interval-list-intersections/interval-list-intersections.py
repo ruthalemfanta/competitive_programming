@@ -4,12 +4,12 @@ class Solution:
         pointer_2 = 0         
         out = []
         while pointer_1 < len(firstList) and pointer_2 < len(secondList):
-            a_start, a_end = firstList[pointer_1]
-            b_start, b_end = secondList[pointer_2]
-            if a_start <= b_end and b_start <= a_end:                       
-                out.append([max(a_start, b_start), min(a_end, b_end)])   
+            first_start, first_end = firstList[pointer_1]
+            second_start, second_end = secondList[pointer_2]
+            if first_start <= second_end and second_start <= first_end:                       
+                out.append([max(first_start, second_start), min(first_end, second_end)])   
                 
-            if a_end <= b_end:        
+            if first_end <= second_end:        
                 pointer_1 += 1               
             else:                      
                 pointer_2 += 1  
