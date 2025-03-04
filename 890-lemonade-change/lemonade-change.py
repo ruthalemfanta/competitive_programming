@@ -19,7 +19,7 @@ class Solution(object):
                 if fiv > 0 and ten > 0:
                     fiv -= 1
                     ten -= 1
-                elif fiv > 2 :
+                elif fiv > 2:
                     fiv -= 3
                 else:
                     return False
