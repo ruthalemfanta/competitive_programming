@@ -9,26 +9,14 @@ class Solution:
         if not root:
             return []
 
-        queue = deque([root])
-        loop = 0
-
-        while queue:
-            for _ in range(len(queue)):
-                node = queue.popleft()
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
-
-            loop += 1
-            if loop % 2 != 0:
-                left, right = 0, len(queue) -1
-                while left < right:
-                    queue[left].val, queue[right].val = queue[right].val, queue[left].val
-                    left += 1
-                    right -= 1
-                
+        self.reverse(root.left, root.right, 1)
         return root
 
+    def reverse(self, l, r, level):
+        if not l: return 
+        if level % 2:
+            l.val, r.val = r.val, l.val
+        self.reverse(l.left, r.right, level + 1)
+        self.reverse(l.right, r.left, level + 1)
 
-
+        
