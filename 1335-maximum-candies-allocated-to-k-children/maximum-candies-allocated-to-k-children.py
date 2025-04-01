@@ -11,7 +11,7 @@ class Solution:
             return count >= k
 
         left = 1
-        right = sum(candies)
+        right = max(candies)
         ans = 0
         while left <= right:
             mid = (right + left) // 2
