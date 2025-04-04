@@ -21,7 +21,6 @@ class Solution:
             return res + left[i:] + right[j:]
 
         numb = merge(nums)
-        print(numb)
 
         for i in range(len(numb)):
             if numb[i] != i :
